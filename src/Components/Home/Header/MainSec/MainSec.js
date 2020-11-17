@@ -1,19 +1,30 @@
 import React from 'react';
 import './MainSec.css'
 import frame from '../../../../images/logos/Frame.png'
+
 const MainSec = () => {
+    
+    // function searchLocation(e) {
+    //     e.preventDefault();
+    //     setKeyword(e.target.value);
+    //   }
+
     return (
         <div className="container headMain">
-        <div className="row d-flex align-items-center">
-            <div className="col-md-4 mr-4">
-                <h1><strong> Let's Grow Your <br/> Brand To The <br/> Next Level </strong></h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptatum ullam velit eligendi facilis.</p>
-                <button className="btn text-light mx-auto w-50 btnHire">Hire us</button>
-            </div>
-            <div className="mr-2 col-md-6 offset-md-1 p-2 headMainImg">
-            <img  className="w-100 img-fluid" src={frame} alt=""/>
+
+        <div className="d-flex justify-content-center align-items-center">
+            <div style={{marginTop: "100px"}}>
+            <h1><strong> FIND YOUR HOUSE RENT </strong></h1>
+            <br/>
+            <form className="row">
+          <input 
+        //   onBlur={searchLocation}
+            className="input form-control w-100 col-md-9" type="search" placeholder="Search..." aria-label="Search"/>
+          <button className="btn btn-dark col-md-3">Find Now</button>
+        </form>
             </div>
         </div>
+
         </div>
     );
 };

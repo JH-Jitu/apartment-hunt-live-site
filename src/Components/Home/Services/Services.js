@@ -8,7 +8,7 @@ const Services = () => {
     
     // Database
     useEffect(() =>{
-        fetch("https://protected-ridge-51835.herokuapp.com/services")
+        fetch("https://nameless-fortress-40927.herokuapp.com/services")
         .then(res => res.json())
         .then(data => {
             setServices(data)
@@ -19,7 +19,8 @@ const Services = () => {
     return (
         <div className="container" id="service">
             {services.length === 0 && <h1 align="center"> Please Wait......... </h1>} <br/>
-            <h3 align="center"><b> Provide awesome <strong className="text-danger"> services </strong> </b></h3>
+            <h6 className="text-secondary text-center">House Rent</h6>
+            <h3 align="center" className="text-dark"><b> Discover the latest Rent <br/> available today </b></h3>
             <div className="d-flex justify-content-center">
                 <div className="mx-auto w-100 row mt-2 pt-5">
                     {

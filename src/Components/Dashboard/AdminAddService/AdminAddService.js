@@ -29,7 +29,7 @@ const AdminAddService = () => {
         formData.append('name', info.name);
         formData.append('desc', info.desc);
 
-        fetch('https://protected-ridge-51835.herokuapp.com/addService', {
+        fetch('https://nameless-fortress-40927.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })

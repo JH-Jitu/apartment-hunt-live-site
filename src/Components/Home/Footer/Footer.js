@@ -1,28 +1,57 @@
 import React from 'react';
+import facebook from '../../../logos/Vector.png';
+import instagram from '../../../logos/Vector-1.png';
+import linkedIn from '../../../logos/Vector-2.png';
+import youTube from '../../../logos/Vector-3.png';
 
 const Footer = () => {
     return (
-        <div style={{ backgroundColor: '#FBD062' }}>
+        <div className="bg-dark text-light">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-5  mt-5">
-                        <h2><b> Let us handle your <br /> project, professionally </b></h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ipsum molestias et architecto eligendi ea, recusandae doloribus reiciendis nobis, culpa at laudantium unde, nesciunt perspiciatis repudiandae maiores ratione eos quos.</p>
+                    <div className="col-md-4  mt-5 d-flex align-items-center">
+                        <p>H#340 (4th Floor), Road #24, <br />
+                            New DOHS, Mohakhali, Dhaka, Bangladesh <br />
+                            Phone: 018XXXXXXXX <br />
+                            E-mail: info@company.com</p>
                     </div>
-                    <div className="col-md-6 offset-md-1 mt-5" id="footer">
-                        <form>
-                            <div className="form-group">
-                                <input type="email" className="form-control" aria-describedby="emailHelp" placeholder="Your email address" />
-                            </div>
-                            <div className="form-group">
-                                <input type="name" className="form-control" placeholder="Your name/company's name" />
-                            </div>
-                            <div className="form-group">
-                                <textarea className="form-control" id="subject" name="subject" placeholder="Your message" style={{ height: "200px", width: "100%" }}></textarea>
-                            </div>
-                            <button style={{ backgroundColor: "#111430" }} type="submit" className="btn btn-dark btnLogin mx-auto w-25">Send</button>
-                        </form>
+
+
+
+                    <div className="col-md-2 col-6 mb-4 mt-5">
+                        <h5>Company</h5>
+                        <ul className="list-unstyled">
+                            <li>About</li>
+                            <li>Site Map</li>
+                            <li>Support Center</li>
+                            <li>Terms Conditions</li>
+                            <li>Submit Listing</li>
+                        </ul>
                     </div>
+                    <div className="col-md-2 col-6 mb-4 mt-5">
+                        <h5>Quick Links</h5>
+                        <ul className="list-unstyled">
+                            <li>Rentals</li>
+                            <li>Sales</li>
+                            <li>Contact</li>
+                            <li>Our Blog</li>
+                            <li>Submit Listing</li>
+                        </ul>
+                    </div>
+
+                    <div className="col-md-4 mb-4 mt-5">
+                        <h5>About Us</h5>
+                        <p>We are the top real estate agency in Sydney, with agents available to answer any question 24/7.</p>
+                        <div className="mt-4 d-flex">
+                            <img width="25px" className="mr-4" src={facebook} alt="facebook" />
+                            <img width="25px" className="mr-4" src={instagram} alt="facebook" />
+                            <img width="25px" className="mr-4" src={linkedIn} alt="facebook" />
+                            <img width="25px" className="mr-4" src={youTube} alt="facebook" />
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
             <small className="d-flex justify-content-center mt-5 p-5">Copyright Md. JH Jitu</small>

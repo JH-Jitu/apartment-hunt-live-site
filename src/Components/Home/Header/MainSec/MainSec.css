@@ -1,21 +1,12 @@
 .headerSec {
-    background: linear-gradient(175deg, #FBD062 80%, white 80%);
-    height: 600px;
-}
+  background: url("../../../../house/Rectangle13.png") no-repeat center right/cover;
+  height: 60vh;
+  color: #fff; }
+  .headerSec .headerMain {
+    text-align: center;
+    padding-top: 20%; }
 
-@media screen and (min-width: 1920px){
-    .headerSec {
-        background: linear-gradient(175deg, #FBD062 80%, white 80%);
-        height: 900px;
-    }
-}
 
-@media screen and (max-width: 736px){
-    .headerSec {
-        background: linear-gradient(175deg, #FBD062 80%, white 80%);
-        height: 900px;
-    }
-}
 .headMain{
     font-family: muli, sans-serif;
   font-weight: 700;

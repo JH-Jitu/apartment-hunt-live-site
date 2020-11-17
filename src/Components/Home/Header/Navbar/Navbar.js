@@ -33,7 +33,7 @@ const Navbar = () => {
                             <a className="nav-link text-dark" href="#footer">Contact Us</a>
                         </li>
                         {
-                loggedInUser.email ? <button style={{ backgroundColor: "#111430", textDecoration: "none", color: "white" }} className="nav-item btn px-4 h-75 btnLogin" onClick={() => setLoggedInUser({})}>Sign Out, {loggedInUser.name}</button> :
+                loggedInUser.email ? <button style={{ backgroundColor: "#111430", textDecoration: "none", color: "white" }} className="nav-item btn px-4 h-75 btnLogin" onClick={() => setLoggedInUser({})}>Sign Out, {loggedInUser.name ? loggedInUser.name : loggedInUser.displayName}</button> :
                   <Link to="/login"><button style={{ backgroundColor: "#111430", textDecoration: "none", color: "white" }} className="nav-item btn px-4 h-75 btnLogin">Sign In</button></Link>
               }
                     </ul>

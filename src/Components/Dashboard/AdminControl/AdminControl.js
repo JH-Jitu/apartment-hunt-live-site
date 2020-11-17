@@ -8,7 +8,7 @@ const AdminControl = () => {
 
     // Database
     useEffect(() => {
-        fetch("https://protected-ridge-51835.herokuapp.com/allOrders")
+        fetch("https://nameless-fortress-40927.herokuapp.com/allOrders")
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
@@ -19,7 +19,7 @@ const AdminControl = () => {
         const status = { status: e.target.value }
         // document.getElementById("changed").innerText = "status changed"
 
-        fetch(`https://protected-ridge-51835.herokuapp.com/addStatus/${id}`, {
+        fetch(`https://nameless-fortress-40927.herokuapp.com/addStatus/${id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json"

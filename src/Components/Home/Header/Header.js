@@ -5,11 +5,12 @@ import Partnership from './Partnership/Partnership';
 
 const Header = () => {
     return (
-        <section style={{marginBottom: "120px"}}>
-        <div className="headerSec mb-2">
+        <section style={{marginBottom: "20px"}}>
             <Navbar></Navbar>
+            <div className="headerSec mb-2">
+                <div className="upperSec">
             <MainSec></MainSec>
-        </div>
+        </div></div>
             <Partnership></Partnership>
         </section>
     );

@@ -18,7 +18,7 @@ function App() {
   const [admin, setAdmin] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({});
   useEffect(() => {
-    fetch(`https://protected-ridge-51835.herokuapp.com/findAdmin/${loggedInUser.email}`)
+    fetch(`https://nameless-fortress-40927.herokuapp.com/findAdmin/${loggedInUser.email}`)
         .then(res => res.json())
         .then(data => {
             setAdmin(data);

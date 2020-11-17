@@ -25,7 +25,7 @@ const Review = () => {
         formData.append('desc', admin.desc);
         formData.append('photo', loggedInUser.photo);
 
-        fetch('https://protected-ridge-51835.herokuapp.com/review', {
+        fetch('https://nameless-fortress-40927.herokuapp.com/review', {
             method: 'POST',
             body: formData
         })

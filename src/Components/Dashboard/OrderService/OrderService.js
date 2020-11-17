@@ -34,7 +34,7 @@ const OrderService = () => {
         formData.append('service', info.service);
         formData.append('price', info.price);
 
-        fetch('https://protected-ridge-51835.herokuapp.com/addOrder', {
+        fetch('https://nameless-fortress-40927.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })
