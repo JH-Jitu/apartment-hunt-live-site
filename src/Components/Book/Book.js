@@ -61,18 +61,17 @@ const Book = () => {
 
 
 
-    const { serviceLink } = useParams();
+    const { _id } = useParams();
     const [house, setHouse] = useState([]);
 
     useEffect(() => {
-        fetch(`https://nameless-fortress-40927.herokuapp.com/services?placeLink=${serviceLink}`)
+        fetch(`https://nameless-fortress-40927.herokuapp.com/book/${_id}`)
             .then(res => res.json())
             .then((data) => {
-                setHouse(data[0]);
-
-                console.log(data)
-            })
-    }, [serviceLink])
+                setHouse(data);
+                // console.log(data);
+            });
+    }, [_id])
     return (
         <div>
             <Navbar></Navbar>
@@ -84,14 +83,13 @@ const Book = () => {
                 <div className="row text-dark">
                     <div className="col-md-8">
                         <div>
-                            {house.image ? <img className='detImg' src={`data:image/png;base64,${house.image.img}`} /> :
-                                <img className='detImg' src={house.img} alt='' />}
+                            {house.image ? <img className='detImg' src={`data:image/png;base64,${house.image.img}`} /> : <img className='detImg' src={house.img} alt='' />}
                         </div> <br/>
                         <div className="row subSecDetail">
-                            <div className="mr-2 col-md-2 col-6"><img src={house1} alt=""/></div>
-                            <div className="mr-2 col-md-2 col-6"><img src={house2} alt=""/></div>
-                            <div className="mr-2 col-md-2 col-6"><img src={house3} alt=""/></div>
-                            <div className="mr-2 col-md-2 col-6"><img src={house4} alt=""/></div>
+                            <div className="mr-2 col-md-2 col-xs-3"><img src={house1} alt=""/></div>
+                            <div className="mr-2 col-md-2 col-xs-3"><img src={house2} alt=""/></div>
+                            <div className="mr-2 col-md-2 col-xs-3"><img src={house3} alt=""/></div>
+                            <div className="mr-2 col-md-2 col-xs-3"><img src={house4} alt=""/></div>
                         </div>
                         <br />
                         <h3>{house.name} </h3>

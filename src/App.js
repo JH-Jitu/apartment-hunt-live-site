@@ -44,7 +44,7 @@ function App() {
               <Route path="/login">
                 <Login></Login>
               </Route>
-              <Route exact path="/book/:serviceLink">
+              <Route path="/book/:_id">
                 <Book></Book>
               </Route>
               <PrivateRoute path="/admin_user" >
@@ -52,7 +52,7 @@ function App() {
               </PrivateRoute>
 
               {admin ? <div>
-                <PrivateRoute path="/dashboard/:serviceLink">
+                <PrivateRoute path="/dashboard/:_id">
                   <AdminControl></AdminControl>
                 </PrivateRoute>
                 <PrivateRoute path="/adminControl" >
@@ -66,7 +66,7 @@ function App() {
                 </PrivateRoute> </div> :
 
                 <div>
-                  <PrivateRoute path="/dashboard/:serviceLink">
+                  <PrivateRoute path="/dashboard/:_id">
                     <OrderService></OrderService>
                   </PrivateRoute>
                   <PrivateRoute path="/orderService" >

@@ -9,7 +9,7 @@ import bath from '../../../../logos/bath.png'
 const ServicesData = ({ service }) => {
     console.log(service)
     return (
-        <div className="col-md-4 card bg-light" style={{ border: "none" }}>
+        <div className="col-md-4 card bg-light mb-4" style={{ border: "none" }}>
             <img className="serviceImg card-img-top" src={`data:image/png;base64,${service.image.img}`} alt="" />
             <div className="card-body bg-white" >
                 <h5 className="mt-3 mb-2 card-title"><strong>{service.name}</strong> </h5>
@@ -21,7 +21,7 @@ const ServicesData = ({ service }) => {
                 <div className="d-flex justify-content-between">
                     <h4>${service.price}</h4>
                     {/* <Link style={{ textDecoration: "none", color: 'black' }} to={`/dashboard/${service.name}`}> */}
-                    <Link style={{ textDecoration: "none", color: 'black' }} to={`/book/${service.name}`}>
+                    <Link style={{ textDecoration: "none", color: 'black' }} to={`/book/${service._id}`}>
                         <button className="btn btn-dark">View Details</button>
                     </Link>
                 </div>
