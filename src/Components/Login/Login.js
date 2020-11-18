@@ -189,39 +189,21 @@ const [error, setError] = useState("")
               <div className='customUser'>
 
               <div className="form-group" controlId='formFirstName'>
-                <input className="form-control"
-                  onBlur={handleBlur}
-                  name='name'
-                  type='text'
-                  placeholder='Name'
-                  ref={register({ required: true })}
-                />
+                <input className="form-control" onBlur={handleBlur} name='name'  type='text' placeholder='Name'  ref={register({ required: true })} />
                 {errors.email && (
                   <span className='error'>Name is required</span>
                 )}
               </div>
 
               <div className="form-group" controlId='formEmail'>
-                <input className="form-control"
-                  onBlur={handleBlur}
-                  name='email'
-                  type='email'
-                  placeholder='Email'
-                  ref={register({ required: true })}
-                />
+                <input className="form-control" onBlur={handleBlur} name='email' type='email' placeholder='Email' ref={register({ required: true })} />
                 {errors.email && (
                   <span className='error'>Email is required</span>
                 )}
               </div>
 
               <div className="form-group" controlId='formPassword'>
-                <input className="form-control"
-                  onBlur={handleBlur}
-                  name='password'
-                  type='password'
-                  placeholder='Password'
-                  ref={register({ required: true, minLength: 6 })}
-                />
+                <input className="form-control" onBlur={handleBlur} name='password' type='password' placeholder='Password' ref={register({ required: true, minLength: 6 })} />
                 {errors.password && (
                   <span className='error'>
                     6 character with at least 1 digit is required
@@ -230,11 +212,7 @@ const [error, setError] = useState("")
               </div>
 
               <div className="form-group" controlId='formConfirmPassword'>
-                <input className="form-control"
-                  onBlur={handleBlur}
-                  name='confirmPassword'
-                  type='password'
-                  placeholder='Confirm Password'
+                <input className="form-control"  onBlur={handleBlur} name='confirmPassword' type='password' placeholder='Confirm Password'
                   ref={register({
                     validate: (value) => value === watch('password'),
                   })}
@@ -251,18 +229,9 @@ const [error, setError] = useState("")
               )}
 
               <div className="form-group">
-                <button className="btn btn-dark"
-                  style={{ width: '100%' }}
-                  variant='primary'
-                  type='submit'
-                >
-                  Sign Up
-                </button>
+                <button className="btn btn-dark w-100" variant='primary' type='submit' >  Sign Up </button>
 
-                <div className="form-group"
-                  className='text-center mt-3'
-                  style={{ color: 'green' }}
-                >
+                <div className="form-group text-center mt-3" style={{ color: 'green' }} >
                   {user.success && (
                     <p>
                       User Created Successfully. A verification email sent in

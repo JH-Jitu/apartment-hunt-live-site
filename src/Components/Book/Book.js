@@ -86,10 +86,10 @@ const Book = () => {
                             {house.image ? <img className='detImg' src={`data:image/png;base64,${house.image.img}`} /> : <img className='detImg' src={house.img} alt='' />}
                         </div> <br/>
                         <div className="row subSecDetail">
-                            <div className="mr-2 col-md-2 col-xs-3"><img src={house1} alt=""/></div>
-                            <div className="mr-2 col-md-2 col-xs-3"><img src={house2} alt=""/></div>
-                            <div className="mr-2 col-md-2 col-xs-3"><img src={house3} alt=""/></div>
-                            <div className="mr-2 col-md-2 col-xs-3"><img src={house4} alt=""/></div>
+                            <div className="ml-md-3 mr-3 col-xs-2 mb-3"><img src={house1} alt=""/></div>
+                            <div className="mr-3 col-xs-2"><img src={house2} alt=""/></div>
+                            <div className="mr-3 col-xs-2"><img src={house3} alt=""/></div>
+                            <div className="mr-3 col-xs-2"><img src={house4} alt=""/></div>
                         </div>
                         <br />
                         <h3>{house.name} </h3>
