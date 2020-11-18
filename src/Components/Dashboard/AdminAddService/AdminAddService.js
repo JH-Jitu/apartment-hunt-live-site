@@ -27,7 +27,10 @@ const AdminAddService = () => {
         const formData = new FormData()
         formData.append('file', file);
         formData.append('name', info.name);
-        formData.append('desc', info.desc);
+        formData.append('bed', info.bed);
+        formData.append('bath', info.bath);
+        formData.append('location', info.location);
+        formData.append('price', info.price);
 
         fetch('https://nameless-fortress-40927.herokuapp.com/addService', {
             method: 'POST',
@@ -67,14 +70,40 @@ const AdminAddService = () => {
 
                                         <div className="mb-3">
                                             <div className="input-group-prepend">
-                                                <b> Description</b>
+                                                <b> Location </b>
                                             </div>
-                                            <textarea style={{ height: "120px", width: "100%" }} onBlur={handleBlur} className="w-100 mx-auto form-control" name="desc" placeholder="Enter Designation" ref={register({ required: true })} />
-                                            {errors.eventName && <span className="error">Description is required</span>}
+                                            <input onBlur={handleBlur} className="w-100 mx-auto form-control" name="location" placeholder="Location" ref={register({ required: true })} />
+                                            {errors.eventName && <span className="error">Service Title is required</span>}
                                         </div>
+
+                                        <div className="mb-3">
+                                            <div className="input-group-prepend">
+                                                <b> No of Bathroom </b>
+                                            </div>
+                                            <input onBlur={handleBlur} className="w-100 mx-auto form-control" name="bath" type="number" placeholder="Bathroom" ref={register({ required: true })} />
+                                            {errors.eventName && <span className="error">Service Title is required</span>}
+                                        </div>
+
                                     </div>
 
                                     <div className="col-md-6">
+
+                                    <div className="mb-3">
+                                            <div className="input-group-prepend">
+                                                <b> Price </b>
+                                            </div>
+                                            <input onBlur={handleBlur} className="w-100 mx-auto form-control" name="price" type="number" placeholder="Price" ref={register({ required: true })} />
+                                            {errors.eventName && <span className="error">Service Title is required</span>}
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <div className="input-group-prepend">
+                                                <b> No of Bedroom </b>
+                                            </div>
+                                            <input onBlur={handleBlur} className="w-100 mx-auto form-control" name="bed" type="number" placeholder="Enter title" ref={register({ required: true })} />
+                                            {errors.eventName && <span className="error">Service Title is required</span>}
+                                        </div>
+
                                         <b>Icon</b>
                                         <div className="input-group mb-3">
                                             <input id="file" accept="image/*" onChange={handleFileChange} className="w-100 mx-auto btn btn-dark form-control" type="file" name="img" ref={register({ required: true })} />

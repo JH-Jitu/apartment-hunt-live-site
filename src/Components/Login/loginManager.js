@@ -1,6 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
+import jwt_decode from 'jwt-decode';
 
 export const initializeLoginFramework = () => {
   if(firebase.apps.length === 0) {

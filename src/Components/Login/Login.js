@@ -9,6 +9,7 @@ import './Login.css';
 
 // Import from loginManager
 import {initializeLoginFramework, handleGoogleSignIn, handleFbSignIn,resetPassword, createUserWithEmailAndPassword, signInWithEmailAndPassword,} from './loginManager';
+import Navbar from '../Home/Header/Navbar/Navbar';
 
 
 const Login = () => {
@@ -55,7 +56,7 @@ const [error, setError] = useState("")
       !newUser && setError(res.error)
     } else {
         setUser(res);
-        setLoggedInUser(res)
+        setLoggedInUser(res);
         redirect && history.replace(from);
         newUser && setError("")
         !newUser && setError("")
@@ -103,7 +104,8 @@ const [error, setError] = useState("")
   const { register, handleSubmit, watch, errors } = useForm();
 
   return (
-    <div className='container d-flex justify-content-center mt-5'>
+    <div><Navbar></Navbar>
+    <div className='container d-flex justify-content-center mt-1'>
       <div className="row">
         <div className="col-sm-12">
           {!newUser ? (
@@ -119,25 +121,14 @@ const [error, setError] = useState("")
 
               <div className='form-group' controlId='formEmail'>
                 <input className="form-control"
-                  onBlur={handleBlur}
-                  name='email'
-                  type='email'
-                  placeholder='Email'
-                  ref={register({ required: true })}
-                />
+                  onBlur={handleBlur} name='email' type='email' placeholder='Email' ref={register({ required: true })} />
                 {errors.email && (
                   <span className='error'>Email is required</span>
                 )}
               </div>
               
               <div className="form-group" controlId='formPassword'>
-                <input className="form-control"
-                  onBlur={handleBlur}
-                  name='password'
-                  type='password'
-                  placeholder='Password'
-                  ref={register({ required: true })}
-                />
+                <input className="form-control" onBlur={handleBlur} name='password' type='password' placeholder='Password' ref={register({ required: true })} />
                 {errors.password && (
                   <span className='error'>Password is required</span>
                 )}
@@ -150,10 +141,7 @@ const [error, setError] = useState("")
                   <label class="form-check-label" for="exampleCheck1">Remember Me</label>
                 </div>
                 <div className="form-group col" id='formForget'>
-                  <span
-                    style={{ cursor: 'pointer', color: 'darkgray' }}
-                    onClick={() => resetPassword(user.email)}
-                  >
+                  <span style={{ cursor: 'pointer', color: 'darkgray' }} onClick={() => resetPassword(user.email)} >
                     Forgot Password? <br/>
                     <b id="resPass"></b>
                   </span>
@@ -167,23 +155,12 @@ const [error, setError] = useState("")
               )}
 
               <div className="form-group">
-                <button className="btn btn-dark"
-                  style={{ width: '100%' }}
-                  variant='warning'
-                  type='submit'
-                >
-                  Login
-                </button>
+                <button className="btn btn-dark" style={{ width: '100%' }} variant='warning'  type='submit' >Login</button>
               </div>
 
               <div className='form-group col' id='formForget' className='text-center mt-3'>
                 <span>Don't have an account?</span>{' '}
-                <span
-                  style={{ cursor: 'pointer', color: 'darkgray' }}
-                  onClick={() => SetNewUSer(true)}
-                >
-                  Create an account
-                </span>
+                <span style={{ cursor: 'pointer', color: 'darkgray' }} onClick={() => SetNewUSer(true)} >Create an account</span>
               </div>
               </div>
 
@@ -325,6 +302,7 @@ const [error, setError] = useState("")
       
       </div>
       
+    </div>
     </div>
   );
 };

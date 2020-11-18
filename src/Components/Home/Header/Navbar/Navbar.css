@@ -2,24 +2,7 @@
     background-color: none;
     text-decoration: none;
 }
-.bgMenu{
-    background: linear-gradient(to right, #272e42, #040d27);
-}
 
-    @media (prefers-reduced-motion: no-preference) {
-        .bgMenu:hover {
-          animation: bgMenu 0.5s linear;
-          background: linear-gradient(to right, #333a4e, #030d2b);
-        }
-      }
-      @keyframes bgMenu {
-        from {
-          transform: scaleX(0.2);
-        }
-        to {
-          transform: scaleX(1);
-        }
-      }
 
 @media screen and (max-width: 760px){
    .nav-font{
@@ -33,12 +16,11 @@
     }
     
 .nav-font li{
-    color: white;
     font-weight: bold;
     text-align: center;
     padding: 5px;
     margin: 5px;
-    background: linear-gradient(to right, #3A4256, #49526b, #4b587a,  #0FCFEC);
+    background-color: rgb(245, 250, 252);
     border-radius: 5px;
     width: 100%;
     box-shadow: 5px 5px 8px rgb(146, 139, 139);

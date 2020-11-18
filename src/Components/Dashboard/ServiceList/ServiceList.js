@@ -32,28 +32,43 @@ const ServiceList = () => {
                     <Dashboard></Dashboard>
                 </div>
                 <div className="col-md-9">
-                <div className="d-flex justify-content-between">
-                    <h4 className="bg-white">My Service List</h4>
-                    <h4>{loggedInUser.name}</h4>
+                    <div className="d-flex justify-content-between">
+                        <h4 className="bg-white">Service List</h4>
+                        <h4>{loggedInUser.name}</h4>
                     </div>
                     <div className="adminService p-4">
-                        <div>
-                            {orders.length === 0 && <h5 align="center">Loading..........Or, You didn't order anything</h5>}
-                            <div className="row mt-4">
-                                {
-                                    orders.map(order => <div style={{ padding: '15px' }} className="col-md-5" order={order} key={order._id}>
-                                        <div style={{ borderRadius: '10px' }} className="bg-white m-2 p-4">
-                                            <div className="d-flex justify-content-between">
-                                                <img style={{ width: '50px' }} src={`data:image/png;base64,${order.image.img}`} alt="" />
-                                <p className="btn btnUpload">{order.status ? order.status : "Pending"}</p>
-                                            </div> <br />
-                                            <h6><b> {order.service}</b></h6>
-                                            <p>{order.desc}</p>
-                                        </div>
-                                    </div>)
-                                }
+                        {orders.length === 0 && <h5 align="center">Loading..........Or, You didn't order anything</h5>}
+                        <div style={{ borderRadius: "20px" }} className="bg-white p-3">
+                            <div className="table-responsive">
+                                <table className="table bg-white table-borderless serveListBg" id="changed">
+                                    <thead className=" p-2">
+                                        <tr className=" p-2">
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email ID</th>
+                                            <th scope="col">Service</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            orders.map(order =>
+                                                <tr key={order._id}>
+                                                    <td>{order.name}</td>
+                                                    <td>{order.email}</td>
+                                                    <td>{order.service}</td>
+                                                    <td>{order.price}</td>
+                                                    <td>
+                                                    <p className="btn btn-dark">{order.status ? order.status : "Pending"}</p>
+
+                                                    </td>
+                                                </tr>)
+                                        }
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

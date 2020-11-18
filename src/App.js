@@ -11,6 +11,7 @@ import OrderService from './Components/Dashboard/OrderService/OrderService';
 import ServiceList from './Components/Dashboard/ServiceList/ServiceList';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Review from './Components/Dashboard/Review/Review';
+import Book from './Components/Book/Book';
 
 export const UserContext = createContext();
 
@@ -19,14 +20,14 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   useEffect(() => {
     fetch(`https://nameless-fortress-40927.herokuapp.com/findAdmin/${loggedInUser.email}`)
-        .then(res => res.json())
-        .then(data => {
-            setAdmin(data);
-            // setRedirect(true)
-        })
-}, [loggedInUser.email]);
+      .then(res => res.json())
+      .then(data => {
+        setAdmin(data);
+        // setRedirect(true)
+      })
+  }, [loggedInUser.email]);
 
-  
+
   console.log(loggedInUser);
   return (
     <div className="App">
@@ -43,38 +44,41 @@ function App() {
               <Route path="/login">
                 <Login></Login>
               </Route>
+              <Route exact path="/book/:serviceLink">
+                <Book></Book>
+              </Route>
               <PrivateRoute path="/admin_user" >
                 {admin ? <AdminControl></AdminControl> : <ServiceList></ServiceList>}
               </PrivateRoute>
-              
-              {admin ? <div> 
-              <PrivateRoute path="/dashboard/:serviceLink">
-                <AdminControl></AdminControl>
-              </PrivateRoute>
-              <PrivateRoute path="/adminControl" >
-                <AdminControl></AdminControl>
-              </PrivateRoute>
-              <PrivateRoute path="/adminAddService">
-                <AdminAddService></AdminAddService>
-              </PrivateRoute>
-              <PrivateRoute path="/adminMaker">
-                <AdminMaker></AdminMaker>
-              </PrivateRoute> </div> :
 
-              <div>
-              <PrivateRoute path="/dashboard/:serviceLink">
-                <OrderService></OrderService>
-              </PrivateRoute>
-              <PrivateRoute path="/orderService" >
-                <OrderService></OrderService>
-              </PrivateRoute>
-              <PrivateRoute path="/userService" >
-                <ServiceList></ServiceList>
-              </PrivateRoute>
-              <PrivateRoute path="/userReview" >
-                <Review></Review>
-              </PrivateRoute>
-              </div>}
+              {admin ? <div>
+                <PrivateRoute path="/dashboard/:serviceLink">
+                  <AdminControl></AdminControl>
+                </PrivateRoute>
+                <PrivateRoute path="/adminControl" >
+                  <AdminControl></AdminControl>
+                </PrivateRoute>
+                <PrivateRoute path="/adminAddService">
+                  <AdminAddService></AdminAddService>
+                </PrivateRoute>
+                <PrivateRoute path="/adminMaker">
+                  <AdminMaker></AdminMaker>
+                </PrivateRoute> </div> :
+
+                <div>
+                  <PrivateRoute path="/dashboard/:serviceLink">
+                    <OrderService></OrderService>
+                  </PrivateRoute>
+                  <PrivateRoute path="/orderService" >
+                    <OrderService></OrderService>
+                  </PrivateRoute>
+                  <PrivateRoute path="/userService" >
+                    <ServiceList></ServiceList>
+                  </PrivateRoute>
+                  <PrivateRoute path="/userReview" >
+                    <Review></Review>
+                  </PrivateRoute>
+                </div>}
 
             </Switch>
           </div>

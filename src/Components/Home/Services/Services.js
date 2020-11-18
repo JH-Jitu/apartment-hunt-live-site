@@ -22,7 +22,7 @@ const Services = () => {
             <h6 className="text-secondary text-center">House Rent</h6>
             <h3 align="center" className="text-dark"><b> Discover the latest Rent <br/> available today </b></h3>
             <div className="d-flex justify-content-center">
-                <div className="mx-auto w-100 row mt-2 pt-5">
+                <div className="mx-auto w-100 row mt-2">
                     {
                         services.map(service => <ServicesData service={service} key={service.name}></ServicesData>)
                     }

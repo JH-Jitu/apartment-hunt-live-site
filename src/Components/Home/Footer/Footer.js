@@ -16,9 +16,7 @@ const Footer = () => {
                             E-mail: info@company.com</p>
                     </div>
 
-
-
-                    <div className="col-md-2 col-6 mb-4 mt-5">
+                    <div className="col-md-2 col-6 mt-5">
                         <h5>Company</h5>
                         <ul className="list-unstyled">
                             <li>About</li>
@@ -28,14 +26,16 @@ const Footer = () => {
                             <li>Submit Listing</li>
                         </ul>
                     </div>
-                    <div className="col-md-2 col-6 mb-4 mt-5">
+                    
+                    <div className="col-md-2 col-6 mt-5">
                         <h5>Quick Links</h5>
                         <ul className="list-unstyled">
+                            <li>Quick Links</li>
                             <li>Rentals</li>
                             <li>Sales</li>
                             <li>Contact</li>
+                            <li>Terms Conditions</li>
                             <li>Our Blog</li>
-                            <li>Submit Listing</li>
                         </ul>
                     </div>
 
@@ -49,8 +49,6 @@ const Footer = () => {
                             <img width="25px" className="mr-4" src={youTube} alt="facebook" />
                         </div>
                     </div>
-
-
 
                 </div>
             </div>

@@ -52,7 +52,7 @@ const AdminControl = () => {
                                             <th scope="col">Name</th>
                                             <th scope="col">Email ID</th>
                                             <th scope="col">Service</th>
-                                            <th scope="col">Project Details</th>
+                                            <th scope="col">Price</th>
                                             <th scope="col">Status</th>
                                         </tr>
                                     </thead>
@@ -63,7 +63,7 @@ const AdminControl = () => {
                                                     <td>{order.name}</td>
                                                     <td>{order.email}</td>
                                                     <td>{order.service}</td>
-                                                    <td>{order.desc}</td>
+                                                    <td>{order.price}</td>
                                                     <td>
                                                         {/* <form onSubmit={handleSubmit(onSubmitEvent)} action=""> */}
                                                         <select name="status" onChange={(e) => handleChange(e, order._id, order.name, order.service)} style={{ border: "none" }}>

@@ -9,28 +9,29 @@ import bath from '../../../../logos/bath.png'
 const ServicesData = ({ service }) => {
     console.log(service)
     return (
-        <div className="col-md-4 card">
-            <Link style={{ textDecoration: "none", color: 'black' }} to={`/dashboard/${service.name}`}>
+        <div className="col-md-4 card bg-light" style={{ border: "none" }}>
             <img className="serviceImg card-img-top" src={`data:image/png;base64,${service.image.img}`} alt="" />
-            <div className="m-1 card-body">     
+            <div className="card-body bg-white" >
                 <h5 className="mt-3 mb-2 card-title"><strong>{service.name}</strong> </h5>
-                <p> <img src={location} alt=""/> Nasirabadd H/S, Chattogram</p>
+                <p> <img src={location} alt="" /> {service.location}</p>
                 <div className="d-flex justify-content-between">
-                    <p><img src={bed} alt=""/> Bedrooms</p>
-                    <p><img src={bath} alt=""/> Bathrooms</p>
+                    <p><img src={bed} alt="" /> {service.bed} Bedrooms</p>
+                    <p><img src={bath} alt="" />{service.bath} Bathrooms</p>
                 </div>
                 <div className="d-flex justify-content-between">
-                    <h4>$ price</h4>
-                    <button className="btn btn-dark">View Details</button>
+                    <h4>${service.price}</h4>
+                    {/* <Link style={{ textDecoration: "none", color: 'black' }} to={`/dashboard/${service.name}`}> */}
+                    <Link style={{ textDecoration: "none", color: 'black' }} to={`/book/${service.name}`}>
+                        <button className="btn btn-dark">View Details</button>
+                    </Link>
                 </div>
                 {/* <p className="text-secondary">{service.desc}</p> */}
             </div>
-            </Link>
 
 
 
 
-            
+
         </div>
 
 

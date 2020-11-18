@@ -51,13 +51,13 @@ const Dashboard = () => {
             <Link style={{ textDecoration: "none" }} to="/adminControl">
               <div className="btn d-flex justify-content-start btnDashboard">
                 <RoomServiceIcon></RoomServiceIcon>
-                <p className="ml-2">Service List</p>
+                <p className="ml-2">Booking List</p>
               </div>
             </Link>
             <Link style={{ textDecoration: "none" }} to="/adminAddService">
               <div className="btn d-flex justify-content-start btnDashboard">
                 <AddIcon></AddIcon>
-                <p className="ml-2">Add Service</p>
+                <p className="ml-2">Add Rent House</p>
               </div>
             </Link>
             <Link style={{ textDecoration: "none" }} to="/adminMaker">
@@ -77,13 +77,13 @@ const Dashboard = () => {
               <Link style={{ textDecoration: "none" }} to="/orderService">
                 <div className="btn d-flex justify-content-start btnDashboard">
                   <ShoppingCartIcon></ShoppingCartIcon>
-                  <p className="ml-2">Order</p>
+                  <p className="ml-2">Order for Custom House</p>
                 </div>
               </Link>
               <Link style={{ textDecoration: "none" }} to="/userService">
                 <div className="btn d-flex justify-content-start btnDashboard">
                   <RoomServiceIcon></RoomServiceIcon>
-                  <p className="ml-2">Service List</p>
+                  <p className="ml-2">My Rent</p>
                 </div>
               </Link>
               <Link style={{ textDecoration: "none" }} to="/userReview">
