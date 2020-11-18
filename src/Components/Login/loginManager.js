@@ -114,4 +114,25 @@ const updateUserName = name =>{
 };
 
 
+// Bearer Token for checking individual orders
+
+export const isLoggedIn = () => {
+  const token = sessionStorage.getItem('token');
+  if (!token) {
+    return false;
+  }
+  const decodedToken = jwt_decode(token);
+  const currentTime = new Date().getTime() / 1000;
+  return decodedToken.exp > currentTime;
+};
+
+export const loggedInInfo = () => {
+  const token = sessionStorage.getItem('token');
+  if (!token) {
+    return false;
+  }
+  const decodedToken = jwt_decode(token);
+  return decodedToken;
+};
+
 

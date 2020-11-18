@@ -6,6 +6,7 @@ import { UserContext } from '../../App';
 import { useForm } from 'react-hook-form';
 import 'firebase/auth';
 import './Login.css';
+import * as firebase from 'firebase/app';
 
 // Import from loginManager
 import {initializeLoginFramework, handleGoogleSignIn, handleFbSignIn,resetPassword, createUserWithEmailAndPassword, signInWithEmailAndPassword,} from './loginManager';
@@ -57,11 +58,26 @@ const [error, setError] = useState("")
     } else {
         setUser(res);
         setLoggedInUser(res);
+        storeAuthToken();
         redirect && history.replace(from);
         newUser && setError("")
         !newUser && setError("")
     }
 }
+
+const storeAuthToken = () => {
+  firebase
+    .auth()
+    .currentUser.getIdToken(/* forceRefresh */ true)
+    .then(function (idToken) {
+      sessionStorage.setItem('token', idToken);
+      history.replace(from);
+    })
+    .catch(function (error) {
+      // Handle error
+    });
+};
+
 
 
   // Sign in/up with email address

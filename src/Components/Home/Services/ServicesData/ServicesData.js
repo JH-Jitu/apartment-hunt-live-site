@@ -7,7 +7,6 @@ import bath from '../../../../logos/bath.png'
 
 
 const ServicesData = ({ service }) => {
-    console.log(service)
     return (
         <div className="col-md-4 card bg-light mb-4" style={{ border: "none" }}>
             <img className="serviceImg card-img-top" src={`data:image/png;base64,${service.image.img}`} alt="" />

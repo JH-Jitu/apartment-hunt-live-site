@@ -50,9 +50,6 @@ const Book = () => {
             body: formData
         })
             .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            })
             .catch(error => {
                 console.error(error)
             })
