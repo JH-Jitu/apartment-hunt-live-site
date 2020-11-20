@@ -81,16 +81,16 @@ const Book = () => {
                     <div className="col-md-8">
                         <div>
                             {house.image ? <img className='detImg' src={`data:image/png;base64,${house.image.img}`} /> : <img className='detImg' src={house.img} alt='' />}
-                        </div> <br/>
+                        </div> <br />
                         <div className="row subSecDetail">
-                            <div className="ml-md-3 mr-3 col-xs-2 mb-3"><img src={house1} alt=""/></div>
-                            <div className="mr-3 col-xs-2"><img src={house2} alt=""/></div>
-                            <div className="mr-3 col-xs-2"><img src={house3} alt=""/></div>
-                            <div className="mr-3 col-xs-2"><img src={house4} alt=""/></div>
+                            <div className="ml-md-3 mr-3 col-xs-2 mb-3"><img src={house1} alt="" /></div>
+                            <div className="mr-3 col-xs-2"><img src={house2} alt="" /></div>
+                            <div className="mr-3 col-xs-2"><img src={house3} alt="" /></div>
+                            <div className="mr-3 col-xs-2"><img src={house4} alt="" /></div>
                         </div>
                         <br />
                         <h3>{house.name} </h3>
-                        <p>300 sq-ft, {house.bed} bedroom, Semi-furnished, Luxurious, South-facing Apartment for Rent in Rangs Malancha, Melbourne.</p>
+                        <p>300 sq-ft, {house.bed} bedroom, Semi-furnished, Luxurious, South-facing Apartment for Rent in {house.location}</p>
 
                         <h4 className="mt-4"><b>Pricing Details -</b></h4>
                         <p>Rent/Month : ${house.price} (negotiable)</p>
@@ -99,12 +99,13 @@ const Book = () => {
                         <p>Flat Release Policy : 3 months earlier notice required</p>
 
                         <h4 className="mt-4"><b>Property Details -</b></h4>
-                        <p>Address &amp; Area : Rangs Malancha, House #68, Road #6A, Dhanmondi Residential Area</p>
-                        <p>Flat Size : 3000 sq-ft</p>
-                        <p>Floor : A5 (5th Floor), 6 storied building, South facing unit</p>
-                        <p>Room Category : {house.bed} Large Bed Rooms with 3 Verandas, Spacious Drawing, Dining &amp; Family Living Room, Highly Decorated Kitchen with Store Room and Servant room with attached Toilet</p>
-                        <p>Facilities : 1 Modern Lift, All Modern Amenities &amp; Semi Furnished, Electricity with full generator, Central Gas Geyser, Car Parking with Driver's Accommodation, Community Conference Hall, Roof top Beautiful Garden and Grassy Ground, Cloth Hanging Facility with CC camera</p>
-
+                        <p>Address and Area :{house.location} <br/>
+                        Flat Size : 3000 Sq Feet. <br/>
+                        Floor :  A5 (5th Floor) (6 storied Building ) (South Facing Unit) <br/>
+                        Room Category : {house.bed} Large Bed Rooms with 3 Verandas, Spacious Drawing, Dining and Family Living Room, Highly Decorated Kitchen with Store Room and Servant room with attached Toilet. <br/>
+                        Facilities : 1 Modern Lift, All Modern Amenities and Semi Furnished. <br/>
+                        Additional Facilities : a. Electricity with full generator load, b. Central Gas Geyser, c. 2 Car Parking with 1 Driver’s Accommodation, d. Community Conference Hall, e. Roof Top Beautified Garden and Grassy Ground, f. Cloth Hanging facility with CC camera <br/>
+                        </p>
                     </div>
 
                     <div className="col-md-4">
@@ -115,7 +116,7 @@ const Book = () => {
                             <form action="" onSubmit={handleSubmit(onSubmitEvent)}>
                                 <section className="orderServe mt-1">
 
-                                <div className="mb-3">
+                                    <div className="mb-3">
                                         <input style={{ border: "none" }} onBlur={handleBlur} className="w-100 mx-auto form-control" value={house.name} name="service" placeholder="Service" ref={register({ required: true })} />
                                         {errors.eventName && <span className="error">Service name is required</span>}
                                     </div>
