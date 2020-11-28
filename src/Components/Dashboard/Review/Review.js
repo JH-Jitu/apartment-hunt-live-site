@@ -4,10 +4,12 @@ import { useForm } from 'react-hook-form';
 import { useHistory} from 'react-router-dom';
 import { UserContext } from '../../../App';
 import Dashboard from '../Dashboard';
+import { loggedInInfo } from '../../Login/loginManager';
 
 const Review = () => {
     const { register, handleSubmit, errors } = useForm();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const loggedUser = loggedInInfo();
     const [admin, setAdmin] = useState({});
     const history = useHistory();
     
@@ -31,10 +33,9 @@ const Review = () => {
         })
             .then(response => response.json())
             .then(data => {
-                // if(data){
-                //     history.replace(from);
-                //     // document.getElementById("reviewUp").innerHTML = "<p> Review Has created successfully <br/> Go to <a class='btn btn-dark' href='/#review'>Review Section</a> </p>"
-                // }
+                if(data){
+                    document.getElementById("reviewUp").innerHTML = "<p> Review Has created successfully <br/> Go to <a class='btn btn-dark' href='/#review'>Review Section</a> </p>"
+                }
             })
             .catch(error => {
                 // console.error(error)
@@ -52,7 +53,7 @@ const Review = () => {
                 <div className="col-md-9">
                 <div className="d-flex justify-content-between">
                     <h4 className="bg-white">Add Review</h4>
-                    <h4>{loggedInUser.name}</h4>
+                    <h4>{loggedInUser.name || loggedUser.name ? loggedInUser.name || loggedUser.name : loggedInUser.displayName || loggedUser.displayName}</h4>
                     </div>
                     <div className="adminService p-4">
                         <form id="reviewUp" action="" onSubmit={handleSubmit(onSubmitEvent)}>

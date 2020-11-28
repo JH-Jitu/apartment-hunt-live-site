@@ -19,8 +19,8 @@ const MainSec = () => {
             <form className="row">
               <input
                 //   onBlur={searchLocation}
-                className="input form-control w-100 col-md-9" type="search" placeholder="Search..." aria-label="Search" />
-              <button className="btn btn-dark col-md-3">Find Now</button>
+                className="input form-control col-md-9 mx-auto w-75" type="search" placeholder="Search..." aria-label="Search" />
+              <button className="btn btn-dark col-md-3 mx-auto w-50">Find Now</button>
             </form>
           </div></div>
       </div></div>

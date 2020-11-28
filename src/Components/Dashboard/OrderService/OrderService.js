@@ -5,6 +5,7 @@ import Dashboard from '../Dashboard';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import './OrderService.css'
 import { UserContext } from '../../../App';
+import { loggedInInfo } from '../../Login/loginManager';
 
 const OrderService = () => {
     const { register, handleSubmit, errors } = useForm();
@@ -12,6 +13,7 @@ const OrderService = () => {
     const [file, setFile] = useState(null);
     const {serviceLink} = useParams();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const loggedUser = loggedInInfo();
     const handleBlur = e => {
         const newInfo = { ...info };
         newInfo[e.target.name] = e.target.value;
@@ -58,7 +60,7 @@ const OrderService = () => {
                 <div className="col-md-9">
                 <div className="d-flex justify-content-between">
                     <h4 className="bg-white">Order</h4>
-                    <h4>{loggedInUser.name}</h4>
+                    <h4>{loggedInUser.name || loggedUser.name ? loggedInUser.name || loggedUser.name : loggedInUser.displayName || loggedUser.displayName}</h4>
                     </div>
                     <div className="adminService p-4">
                     <form action="" onSubmit={handleSubmit(onSubmitEvent)}>

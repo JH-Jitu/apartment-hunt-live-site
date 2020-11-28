@@ -3,9 +3,25 @@ import './Navbar.css';
 import menu from '../../../../images/menu.png';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../../App';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import { handleSignOut, isLoggedIn, loggedInInfo } from '../../../Login/loginManager';
+
+
 
 const Navbar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+      // is logged in
+  const isLogged = isLoggedIn();
+
+  // Handle sign out button
+  const signOut = () => {
+    setLoggedInUser({});
+    sessionStorage.removeItem('token');
+  };
+
+  const loggedUser = loggedInInfo()
+  
     return (
         <div className="container mb-2">
             <nav className="navbar navbar-expand-lg  nav-font">
@@ -33,7 +49,7 @@ const Navbar = () => {
                             <a className="nav-link text-dark" href="#footer">Contact Us</a>
                         </li>
                         {
-                loggedInUser.email ? <button style={{ backgroundColor: "#111430", textDecoration: "none", color: "white" }} className="nav-item btn px-4 h-75 bg-dark btn-dark" onClick={() => setLoggedInUser({})}>Sign Out, {loggedInUser.name ? loggedInUser.name : loggedInUser.displayName}</button> :
+                loggedInUser.email || isLogged ? <button style={{ backgroundColor: "#111430", textDecoration: "none", color: "white" }} className="nav-item btn px-4 h-75 bg-dark btn-dark" onClick={signOut}>Sign Out, {loggedInUser.name || loggedUser.name ? loggedInUser.name || loggedUser.name : loggedInUser.displayName || loggedUser.displayName}</button> :
                   <Link to="/login"><button style={{ backgroundColor: "#111430", textDecoration: "none", color: "white" }} className="nav-item btn px-4 h-75 bg-dark btn-dark">Sign In</button></Link>
               }
                     </ul>

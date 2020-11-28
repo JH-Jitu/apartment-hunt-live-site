@@ -5,9 +5,12 @@ import Dashboard from '../Dashboard';
 import './AdminAddService.css';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { UserContext } from '../../../App';
+import { loggedInInfo } from '../../Login/loginManager';
+
 
 const AdminAddService = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const loggedUser = loggedInInfo();
     const { register, handleSubmit, errors } = useForm();
     const [info, setInfo] = useState({});
     const [file, setFile] = useState(null);
@@ -53,7 +56,7 @@ const AdminAddService = () => {
                 <div className="col-md-9">
                     <div className="d-flex justify-content-between">
                     <h4 className="bg-white">Add Service</h4>
-                    <h4>{loggedInUser.name}</h4>
+                    <h4>{loggedInUser.name || loggedUser.name ? loggedInUser.name || loggedUser.name : loggedInUser.displayName || loggedUser.displayName}</h4>
                     </div>
                     <div className="adminService p-4">
                         <form action="" onSubmit={handleSubmit(onSubmitEvent)}>

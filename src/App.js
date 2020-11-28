@@ -12,20 +12,23 @@ import ServiceList from './Components/Dashboard/ServiceList/ServiceList';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Review from './Components/Dashboard/Review/Review';
 import Book from './Components/Book/Book';
+import { loggedInInfo } from './Components/Login/loginManager';
 
 export const UserContext = createContext();
 
 function App() {
   const [admin, setAdmin] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({});
+  const loggedUser = loggedInInfo();
   useEffect(() => {
-    fetch(`https://nameless-fortress-40927.herokuapp.com/findAdmin/${loggedInUser.email}`)
+    fetch(`https://nameless-fortress-40927.herokuapp.com/findAdmin/${loggedInUser.email || loggedUser.email && loggedInUser.email || loggedUser.email}`)
       .then(res => res.json())
       .then(data => {
         setAdmin(data);
         // setRedirect(true)
       })
-  }, [loggedInUser.email]);
+  }, [loggedInUser.email || loggedUser.email && loggedInUser.email || loggedUser.email]);
+
 
 
   console.log(loggedInUser);
@@ -51,34 +54,34 @@ function App() {
                 {admin ? <AdminControl></AdminControl> : <ServiceList></ServiceList>}
               </PrivateRoute>
 
-              {admin ? <div>
-                <PrivateRoute path="/dashboard/:_id">
+              {admin ? (<div>
+                <PrivateRoute exact path="/dashboard/:_id">
                   <AdminControl></AdminControl>
                 </PrivateRoute>
-                <PrivateRoute path="/adminControl" >
+                <PrivateRoute exact path="/adminControl" >
                   <AdminControl></AdminControl>
                 </PrivateRoute>
-                <PrivateRoute path="/adminAddService">
+                <PrivateRoute exact path="/adminAddService">
                   <AdminAddService></AdminAddService>
                 </PrivateRoute>
-                <PrivateRoute path="/adminMaker">
+                <PrivateRoute exact path="/adminMaker">
                   <AdminMaker></AdminMaker>
-                </PrivateRoute> </div> :
+                </PrivateRoute> </div>) :
 
-                <div>
-                  <PrivateRoute path="/dashboard/:_id">
+                (<div>
+                  <PrivateRoute exact path="/dashboard/:_id">
                     <OrderService></OrderService>
                   </PrivateRoute>
-                  <PrivateRoute path="/orderService" >
+                  <PrivateRoute exact path="/orderService" >
                     <OrderService></OrderService>
                   </PrivateRoute>
-                  <PrivateRoute path="/userService" >
+                  <PrivateRoute exact path="/userService" >
                     <ServiceList></ServiceList>
                   </PrivateRoute>
-                  <PrivateRoute path="/userReview" >
+                  <PrivateRoute exact path="/userReview" >
                     <Review></Review>
                   </PrivateRoute>
-                </div>}
+                </div>)}
 
             </Switch>
           </div>

@@ -10,6 +10,7 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 import logo from '../../images/logos/logo.png';
 import './Dashboard.css';
 import { UserContext } from '../../App';
+import { loggedInInfo } from '../../Components/Login/loginManager';
 
 // Material UI elements
 const useStyles = makeStyles((theme) => ({
@@ -24,15 +25,19 @@ const Dashboard = () => {
   const classes = useStyles();
   const [admin, setAdmin] = useState(false);
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const loggedUser = loggedInInfo();
 
   useEffect(() => {
-    fetch(`https://nameless-fortress-40927.herokuapp.com/findAdmin/${loggedInUser.email}`)
+    fetch(`https://nameless-fortress-40927.herokuapp.com/findAdmin/${loggedInUser.email || loggedUser.email && loggedInUser.email || loggedUser.email}`)
       .then(res => res.json())
       .then(data => {
         setAdmin(data);
         // setRedirect(true)
       })
-  }, [loggedInUser.email]);
+  }, [loggedInUser.email || loggedUser.email && loggedInUser.email || loggedUser.email]);
+
+  
+
 
   return (
 
@@ -45,7 +50,7 @@ const Dashboard = () => {
       </div>
       {/* Admin Panel */}
 
-      { admin ? <admin className="d-flex justify-content-center">
+      { admin ? (<admin className="d-flex justify-content-center">
         <div className="mt-3 p-2">
           <List className={`${classes.root}`}>
             <Link style={{ textDecoration: "none" }} to="/adminControl">
@@ -68,10 +73,10 @@ const Dashboard = () => {
             </Link>
           </List>
         </div>
-      </admin> :
+      </admin>) :
 
 
-        <user className="d-flex justify-content-center">
+        (<user className="d-flex justify-content-center">
           <div className="mt-3 p-2">
             <List className={classes.root}>
               <Link style={{ textDecoration: "none" }} to="/orderService">
@@ -94,7 +99,7 @@ const Dashboard = () => {
               </Link>
             </List>
           </div>
-        </user>}
+        </user>)}
 
     </div>
   );

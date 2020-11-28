@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../App';
 import Dashboard from '../Dashboard';
+import { loggedInInfo } from '../../Login/loginManager';
 
 const AdminControl = () => {
     const [orders, setOrders] = useState([]);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const loggedUser = loggedInInfo();
 
     // Database
     useEffect(() => {
@@ -40,7 +42,7 @@ const AdminControl = () => {
                 <div className="col-md-9">
                     <div className="d-flex justify-content-between">
                         <h4 className="bg-white">Service List</h4>
-                        <h4>{loggedInUser.name}</h4>
+                        <h4>{loggedInUser.name || loggedUser.name ? loggedInUser.name || loggedUser.name : loggedInUser.displayName || loggedUser.displayName}</h4>
                     </div>
                     <div className="adminService p-4">
                         {orders.length === 0 && <h5 align="center">Loading..........Or, You didn't order anything</h5>}
